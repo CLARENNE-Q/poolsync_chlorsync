@@ -1,0 +1,12 @@
+{
+    "domain": "poolsync_chlorsync",
+    "name": "PoolSync ChlorSync",
+    "version": "1.0.0",
+    "config_flow": true,
+    "documentation": "https://github.com/ton_repo_si_tu_veux",
+    "requirements": [],
+    "dependencies": [],
+    "codeowners": ["@ton_github_si_tu_veux"],
+    "iot_class": "cloud_polling"
+  }
+  

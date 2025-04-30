@@ -1,0 +1,10 @@
+{
+  "name": "PoolSync ChlorSync",
+  "domain": "poolsync_chlorsync",
+  "codeowners": ["@CLARENNE-Q"],
+  "documentation": "https://github.com/CLARENNE-Q/poolsync_chlorsync",
+  "requirements": [],
+  "version": "1.0.0",
+  "config_flow": true,
+  "render_readme": true
+}

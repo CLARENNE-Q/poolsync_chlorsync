@@ -1,0 +1,15 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "title": "Configurer PoolSync ChlorSync",
+                "description": "Connectez-vous avec votre compte PoolSync.",
+                "data": {
+                    "email": "Adresse e-mail",
+                    "password": "Mot de passe",
+                    "scan_interval": "Intervalle d'actualisation (secondes)"
+                }
+            }
+        }
+    }
+}
