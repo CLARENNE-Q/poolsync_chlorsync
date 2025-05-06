@@ -25,6 +25,7 @@ class PoolSyncChlorSyncCoordinator(DataUpdateCoordinator):
         self.data = None
 
     async def _async_update_data(self):
+        _LOGGER.debug("🔁 Refreshing data from PoolSync Cloud...")
         """Mettre à jour les données depuis PoolSync Cloud."""
         try:
             if not self.access_token:

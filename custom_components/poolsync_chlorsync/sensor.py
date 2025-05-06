@@ -5,6 +5,7 @@ from homeassistant.const import (
     PERCENTAGE,
     CONCENTRATION_PARTS_PER_MILLION,
 )
+from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import DOMAIN
 
@@ -24,8 +25,9 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
     ]
     async_add_entities(sensors, True)
 
-class PoolSyncChlorSyncSensor(SensorEntity):
+class PoolSyncChlorSyncSensor(CoordinatorEntity, SensorEntity):
     def __init__(self, coordinator, sensor_type, name, device_class, unit):
+        super().__init__(coordinator)
         self.coordinator = coordinator
         self._sensor_type = sensor_type
         self._attr_name = f"PoolSync ChlorSync {name}"
