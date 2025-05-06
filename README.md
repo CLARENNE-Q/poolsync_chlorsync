@@ -42,7 +42,7 @@ This integration retrieves and displays real-time ChlorSync device data, includi
 
 ## Attribution
 
-Developed by [Quentin Clarenne](https://github.com/clarenneq)  
+Developed by [Quentin Clarenne](https://github.com/CLARENNE-Q)  
 PoolSync™ and ChlorSync® are trademarks of **AutoPilot®**
 
 ---
