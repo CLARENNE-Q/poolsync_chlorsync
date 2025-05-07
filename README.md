@@ -2,8 +2,8 @@
 
 This custom component adds support for **PoolSync™ ChlorSync®** by **AutoPilot®** to Home Assistant.
 
-> ✅ Cloud-only read-only integration using the official AWS API  
-> ❌ No LAN/local control or write actions supported
+> ✅ Cloud-only integration using the official AWS API  
+> ❌ No LAN/local control
 
 ## Features
 
@@ -11,9 +11,11 @@ This integration retrieves and displays real-time ChlorSync device data, includi
 
 - 🌡️ Water temperature (°C)
 - 🧂 Salt level (ppm)
-- ⚡ Chlorine output (%)
+- ⚡ Chlorine output (%), **read/write**
 - 🔋 Output voltage (mV)
 - 🧠 Cell rail voltage (mV)
+
+> You can change the chlorine output using a number entity in Home Assistant (slider or automation).
 
 ## Installation
 
