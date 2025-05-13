@@ -49,15 +49,22 @@ class PoolSyncChlorSyncCoordinator(DataUpdateCoordinator):
             async with aiohttp.ClientSession() as session:
                 async with session.get(url, headers=headers, timeout=10) as response:
                     _LOGGER.debug(f"🌐 Cloud GET status : {response.status}")
-                    if response.status != 200:
-                        raise UpdateFailed(f"Erreur Cloud {response.status}")
-                    data = await response.json()
-
-                    if isinstance(data, list):
-                        data = data[0]
+                    if response.status == 401:
+                        _LOGGER.warning("⚠️ Token expiré, reconnexion...")
+                        self.access_token = await self.hass.async_add_executor_job(self._sync_login)
+                        headers["authorization"] = self.access_token
+                        async with session.get(url, headers=headers, timeout=10) as retry:
+                            _LOGGER.debug(f"🌐 Cloud RETRY status : {retry.status}")
+                            retry.raise_for_status()
+                            data = await retry.json()
+                    else:
+                        response.raise_for_status()
+                        data = await response.json()
 
                     _LOGGER.debug(f"📥 Données Cloud reçues: {data}")
 
+                    if isinstance(data, list):
+                        data = data[0]
                     self.mac = data.get("poolSync", {}).get("system", {}).get("macAddr")
                     return data
 
